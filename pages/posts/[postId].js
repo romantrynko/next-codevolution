@@ -1,8 +1,16 @@
+import { useRouter } from 'next/router';
+
 const Post = ({ post }) => {
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return <h1>Loading...</h1>;
+  }
+
   return (
     <>
       <h2>
-        {post.id} - {post.title}
+        {post.id} {post.title}
       </h2>
       <p>{post.body}</p>
     </>
@@ -19,7 +27,7 @@ export const getStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false
+    fallback: true
   };
 };
 
@@ -31,6 +39,12 @@ export const getStaticProps = async (context) => {
     `https://jsonplaceholder.typicode.com/posts/${postId}`
   );
   const data = await response.json();
+
+  if (!data.id) {
+    return {
+      notFound: true
+    };
+  }
 
   return {
     props: {
