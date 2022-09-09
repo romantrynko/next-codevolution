@@ -6,6 +6,10 @@ const Home = () => {
     <>
       <h1>Home</h1>
       <div className="nav-menu">
+        <Link href="/news">
+          <a>News</a>
+        </Link>
+
         <Link href="/users">
           <a>Users</a>
         </Link>

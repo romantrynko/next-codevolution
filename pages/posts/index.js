@@ -12,7 +12,6 @@ const PostList = ({ posts }) => {
               <h2>{title}</h2>
             </Link>
             <p>{body}</p>
-            <hr />
           </div>
         );
       })}
