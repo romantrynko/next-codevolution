@@ -7,7 +7,7 @@ const PostList = ({ posts }) => {
       <h1>Posts list</h1>
       {posts.map(({ id, title, body }) => {
         return (
-          <div key={id}>
+          <div className='post-card' key={id}>
             <Link href={`/posts/${id}`}>
               <h2>{title}</h2>
             </Link>
@@ -28,7 +28,7 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      posts: data
+      posts: data.slice(0, 10)
     }
   };
 };
