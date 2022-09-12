@@ -8,10 +8,10 @@ function MyApp({ Component, pageProps }) {
   return (
     <Layout>
       <div className="header">
-        <button className="sort-button" onClick={() => router.push('/')}>
+        <button className="button" onClick={() => router.push('/')}>
           Home
         </button>
-        <h2>Layout header</h2>
+        <h2>Next.js CRUD App</h2>
       </div>
       <div className="filler"></div>
       <Component {...pageProps} />

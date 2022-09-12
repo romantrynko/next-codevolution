@@ -5,13 +5,13 @@ const NewsArticlesList = ({ articles }) => {
     <div>
       <div className="sort-options">
         <button
-          className="sort-button"
+          className="button"
           onClick={() => router.push('/news/sports')}
         >
           Sports
         </button>
         <button
-          className="sort-button"
+          className="button"
           onClick={() => router.push('/news/politics')}
         >
           Politics

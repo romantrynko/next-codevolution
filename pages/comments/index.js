@@ -39,15 +39,18 @@ const CommentsPage = () => {
 
   return (
     <div className="comments-page">
-      <input
-        value={comment}
-        onChange={(e) => setComment(e.target.value)}
-        className="comment-input"
-      />
-      <button className="sort-button sport" onClick={submitComment}>
-        Submit comment
-      </button>
-      <button className="sort-button sport" onClick={fetchComments}>
+      <div className="comment-input-container">
+        <input
+          value={comment}
+          onChange={(e) => setComment(e.target.value)}
+          className="comment-input"
+          placeholder="Enter you comment"
+        />
+        <button className="button width-fit-content" onClick={submitComment}>
+          Submit
+        </button>
+      </div>
+      <button className="button width-fit-content" onClick={fetchComments}>
         Load comments
       </button>
       {comments.map((comment) => {

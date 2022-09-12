@@ -23,16 +23,16 @@ body {
 
 a {
   font-weight: 300;
-  color: aliceblue;
-  font-size: 20px;
+  color: rgb(178, 178, 178);
+  font-size: 25px;
   text-decoration: none;
-  margin-bottom: 15px;
-  border-bottom: 1px solid rgb(88, 213, 227);
+  margin-bottom: 18px;
   width: fit-content;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 35px;
+  height: 38px;
+  box-sizing: border-box;
 }
 
 a:last-child {
@@ -40,9 +40,10 @@ a:last-child {
 }
 
 a:hover {
-  transform: scale(1.23);
-  color: rgb(129, 215, 129);
+  transform: scale(1.02);
+  color: rgb(255, 255, 255);
   transition-duration: 300ms;
+  border-bottom: 2px solid rgb(242, 166, 52);
 }
 
 a:active {
@@ -106,11 +107,11 @@ a:not(:hover) {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgb(27, 98, 143);
-  box-shadow: 0 10px 25px -5px rgb(0, 0, 0);
+  background-color: rgba(255, 255, 255, 0.05);
+  /* box-shadow: 0 10px 25px -5px rgb(0, 0, 0); */
   width: 350px;
   margin: 100px auto;
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 40px 0px;
 }
 
@@ -179,29 +180,37 @@ a:not(:hover) {
   margin: 20px auto
 }
 
-.sort-button {
-  width: 100px;
+.button {
+  /* width: 100px; */
+  padding: 0 15px;
   height: 40px;
   border: none;
   font-size: 17px;
-  border-radius: 7px;
-  background-color: rgb(27, 143, 120);
-  color: aliceblue;
+  border-radius: 4px;
+  background-color: rgba(27, 143, 120, 0);
+  border: 1px solid rgb(64, 64, 64);
+  color: rgb(158, 158, 158);
   cursor: pointer;
 }
 
-.sort-button:hover {
-  box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.15);
-  background-color: rgb(22, 102, 86);
+.width-fit-content {
+  width: fit-content;
+}
+
+.button:hover {
+  /* box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.35); */
+  background-color: rgba(60, 167, 145, 0.2);
+  border: 1px solid rgb(20, 153, 118);
+  color: white;
   transform: translateY(-1px);
   transition-duration: 300ms;
 }
 
-.sort-button:not(:hover) {
+.button:not(:hover) {
   transition-duration: 200ms;
 }
 
-.sort-button:active {
+.button:active {
   box-shadow: 0 10px 15px -5px rgb(0, 0, 0);
   background-color: rgb(14, 70, 59);
   transform: translateY(1px);
@@ -219,11 +228,6 @@ a:not(:hover) {
   background-color: rgba(113, 56, 154, 0.591);
   width: 70%;
   margin: 50px auto;
-}
-
-.sport {
-  width: 200px;
-  margin-top: 10px;
 }
 
 .card-height {
@@ -249,7 +253,7 @@ a:not(:hover) {
 }
 
 input {
-  width: 100%;
+  width: 70%;
   border: none;
   height: 35px;
   border-radius: 4px;
@@ -257,15 +261,19 @@ input {
   font-size: 20px;
   color: rgb(218, 218, 218);
   padding-left: 8px;
-  margin-bottom: 15px;
 }
 
-.comment-input {
-  width: 70%;
+.comment-input-container {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 20px;
 }
 
 input::placeholder {
   color: rgb(195, 195, 195);
+  text-align: center;
 }
 
 .event-form {
@@ -275,6 +283,10 @@ input::placeholder {
   align-items: center;
   margin: 15px auto;
   width: 65%;
+}
+
+.event-input {
+  margin-bottom: 10px;
 }
 
 .add-button {

@@ -3,7 +3,7 @@ import Link from 'next/link';
 const Home = () => {
   return (
     <>
-      <h1>Home page</h1>
+      {/* <h1>Home page</h1> */}
       <div className="nav-menu">
         <Link href="/news">
           <a>News</a>
