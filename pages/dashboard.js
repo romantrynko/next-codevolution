@@ -12,9 +12,22 @@ const Dashboard = () => {
       setDashboardData(data);
       setIsLoading(false);
     };
+    fetchDashboardData();
   }, []);
 
-  return <div>Dashboard</div>;
+  if (isLoading) {
+    return <h2>Loading . . .</h2>;
+  }
+
+  return (
+    <div className='nav-menu'>
+      <h2>Dashboard</h2>
+      <h4>Posts - {dashboardData.posts}</h4>
+      <h4>Likes - {dashboardData.likes}</h4>
+      <h4>Followers - {dashboardData.followers}</h4>
+      <h4>Following - {dashboardData.following}</h4>
+    </div>
+  );
 };
 
 export default Dashboard;

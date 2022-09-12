@@ -87,7 +87,7 @@ a:not(:hover) {
   height: 350px;
   width: 350px;
   margin: 100px auto;
-  border-radius: 30px;
+  border-radius: 8px;
 }
 
 .user-card {
@@ -181,4 +181,22 @@ a:not(:hover) {
   background-color: rgb(14, 70, 59);
   transform: translateY(1px);
   color: rgb(110, 110, 110);
+}
+
+.event-card {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  padding: 0 20px;
+  background-color: rgba(113, 56, 154, 0.591);
+  width: 70%;
+  margin: 50px auto;
+}
+
+.sport {
+  width: 200px;
+  margin-top: 10px;
 }
