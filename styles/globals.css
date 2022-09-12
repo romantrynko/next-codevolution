@@ -43,8 +43,8 @@ a:last-child {
 a:hover {
   /* transform: scale(1.02); */
   color: rgb(255, 255, 255);
-  border-bottom: 2px solid rgb(242, 166, 52);
-  width: 100%;
+  border-bottom: 1px solid rgb(242, 166, 52);
+  width: 78%;
   transition-duration: 300ms;
 }
 
