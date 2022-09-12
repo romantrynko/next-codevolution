@@ -26,7 +26,13 @@ a {
   color: aliceblue;
   font-size: 20px;
   text-decoration: none;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid rgb(88, 213, 227);
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
 }
 
 a:last-child {
@@ -99,6 +105,7 @@ a:not(:hover) {
 .nav-menu {
   display: flex;
   flex-direction: column;
+  align-items: center;
   background-color: rgb(27, 98, 143);
   box-shadow: 0 10px 25px -5px rgb(0, 0, 0);
   width: 350px;
@@ -232,9 +239,9 @@ a:not(:hover) {
 .comment {
   cursor: pointer;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: start;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   width: 87%;
   margin: 0 auto;
   border-bottom: 1px solid gray;
@@ -242,7 +249,7 @@ a:not(:hover) {
 }
 
 input {
-  width: 250px;
+  width: 100%;
   border: none;
   height: 35px;
   border-radius: 4px;
@@ -251,6 +258,10 @@ input {
   color: rgb(218, 218, 218);
   padding-left: 8px;
   margin-bottom: 15px;
+}
+
+.comment-input {
+  width: 70%;
 }
 
 input::placeholder {
@@ -262,4 +273,63 @@ input::placeholder {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 15px auto;
+  width: 65%;
+}
+
+.add-button {
+  width: 50px;
+  height: 50px;
+  border: none;
+  font-size: 27px;
+  border-radius: 50%;
+  background-color: rgb(27, 143, 120);
+  color: aliceblue;
+  cursor: pointer;
+}
+
+.add-button:hover {
+  box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.15);
+  background-color: rgb(22, 102, 86);
+  transform: translateY(-1px);
+  transition-duration: 300ms;
+}
+
+.add-button:not(:hover) {
+  transition-duration: 200ms;
+}
+
+.add-button:active {
+  box-shadow: 0 10px 15px -5px rgb(0, 0, 0);
+  background-color: rgb(14, 70, 59);
+  transform: translateY(1px);
+  color: rgb(110, 110, 110);
+}
+
+.delete-button {
+  border: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0);
+  color: antiquewhite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: rgb(145, 63, 42);
+  transition-duration: 300ms;
+}
+
+.delete-button:not(:hover) {
+  transition-duration: 200ms;
+}
+
+.delete-button:active {
+  background-color: rgb(222, 69, 42);
+  color: rgb(82, 21, 21);
+  transform: scale(0.8);
 }

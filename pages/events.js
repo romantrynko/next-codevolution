@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import { useEffect, useReducer, useState } from 'react';
+import EventForm from '../components/EventForm';
 
 // export const getServerSideProps = async (context) => {
 //   const { query } = context;
@@ -26,9 +27,11 @@ const formReducer = (state, event) => {
 
 const EventList = () => {
   const [events, setEvents] = useState([]);
+  const [open, setOpen] = useState(false);
+  const [addButtonText, setAddButtonText] = useState('+');
   const router = useRouter();
+
   const [formData, setFormData] = useReducer(formReducer, {});
-  console.log(formData);
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -38,20 +41,24 @@ const EventList = () => {
       setEvents(data);
     };
     fetchEvents();
-  }, []);
 
-  const fetchSportsEvents = async () => {
-    const response = await fetch(
-      'http://localhost:4000/events?category=sports'
-    );
-    const data = await response.json();
+    if (open) {
+      setAddButtonText('x');
+    } else {
+      setAddButtonText('+');
+    }
+  }, [events, open]);
 
-    setEvents(data);
-    router.push('events?category=sports', undefined, { shallow: true });
-  };
+  // const fetchSportsEvents = async () => {
+  //   const response = await fetch('/api/events?category=sports');
+  //   const data = await response.json();
 
-  const handleSubmit = async () => {
-    const { id, title, description, category, date } = formData;
+  //   setEvents(data);
+  //   router.push('events?category=sports', undefined, { shallow: true });
+  // };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
     const response = await fetch('/api/events', {
       method: 'POST',
@@ -60,29 +67,23 @@ const EventList = () => {
         'Content-type': 'application/json'
       }
     });
-    const data = await response.json();
-    console.log(data);
+    setOpen(false);
   };
 
   return (
     <>
-      <button onClick={fetchSportsEvents} className="sort-button sport">
+      {/* <button onClick={fetchSportsEvents} className="sort-button sport">
         Sports Events
-      </button>
+      </button> */}
       <h1>List of events</h1>
 
-      <form className="event-form" onSubmit={handleSubmit}>
-        <input onChange={setFormData} name="title" placeholder="Title" />
-        <input
-          onChange={setFormData}
-          name="description"
-          placeholder="Description"
-        />
-        <input onChange={setFormData} name="category" placeholder="Category" />
-        <input type="date" onChange={setFormData} name="date" />
+      <button onClick={() => setOpen(!open)} className="add-button">
+        {addButtonText}
+      </button>
 
-        <button className="sort-button sport">Submit event</button>
-      </form>
+      {open && (
+        <EventForm setFormData={setFormData} handleSubmit={handleSubmit} />
+      )}
 
       {events.map((event) => {
         const { id, title, description, category, date } = event;
@@ -90,8 +91,10 @@ const EventList = () => {
         return (
           <div key={id} className="event-card">
             <h2>
-              {id}. {title} - {date} | {category}
+              {id}. {title}
             </h2>
+            <h5>Date: {date}</h5>
+            <h4>Category - {category}</h4>
             <p>{description}</p>
           </div>
         );
