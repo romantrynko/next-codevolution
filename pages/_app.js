@@ -11,7 +11,9 @@ function MyApp({ Component, pageProps }) {
         <button className="button" onClick={() => router.push('/')}>
           Home
         </button>
-        <h2>Next.js CRUD App</h2>
+        <h2 className="title" onClick={() => router.push('/events')}>
+          Next.js CRUD App
+        </h2>
       </div>
       <div className="filler"></div>
       <Component {...pageProps} />

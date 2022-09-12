@@ -55,6 +55,26 @@ a:not(:hover) {
   transition-duration: 200ms;
 }
 
+.title {
+  color: rgb(199, 199, 199);
+  cursor: pointer
+}
+
+.title:hover {
+  transform: scale(1.05);
+  color: white;
+  transition-duration: 300ms;
+}
+
+.title:not(:hover) {
+  transition-duration: 200ms;
+}
+
+.title:active {
+  color: gray;
+  transform: scale(0.95);
+}
+
 .header {
   background-color: rgb(101, 101, 101);
   width: 100%;

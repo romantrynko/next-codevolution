@@ -4,16 +4,12 @@ const CommentsPage = () => {
   const [comments, setComments] = useState([]);
   const [comment, setComment] = useState([]);
 
-  const fetchComments = useCallback(async () => {
+  const fetchComments = async () => {
     const response = await fetch('/api/comments');
     const data = await response.json();
 
     setComments(data);
-  }, []);
-
-  useEffect(() => {
-    fetchComments();
-  }, [comments, fetchComments]);
+  };
 
   const submitComment = async () => {
     const response = await fetch('/api/comments', {
@@ -23,18 +19,18 @@ const CommentsPage = () => {
         'Content-type': 'application/json'
       }
     });
-
-    setComment([]);
+    const data = await response.json();
+    console.log(data);
   };
 
   const deleteComment = async (commentId) => {
     const response = await fetch(`api/comments/${commentId}`, {
-      method: 'DELETE',
-      body: JSON.stringify({ commentId }),
-      headers: {
-        'Content-type': 'application/json'
-      }
+      method: 'DELETE'
     });
+
+    const data = await response.json();
+    console.log(data);
+    fetchComments();
   };
 
   return (

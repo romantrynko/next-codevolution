@@ -1,37 +1,17 @@
 import Link from 'next/link';
+import { navs } from '../assets/constants';
 
 const Home = () => {
   return (
-    <>
-      {/* <h1>Home page</h1> */}
-      <div className="nav-menu">
-        <Link href="/news">
-          <a>News</a>
-        </Link>
-        <Link href="/comments">
-          <a>Comments</a>
-        </Link>
-        <Link href="/events">
-          <a>Events</a>
-        </Link>
-
-        <Link href="/dashboard-swr">
-          <a>DashboardSWR</a>
-        </Link>
-
-        <Link href="/users">
-          <a>Users</a>
-        </Link>
-
-        <Link href="/posts">
-          <a>Posts</a>
-        </Link>
-
-        <Link href="/products">
-          <a>Products</a>
-        </Link>
-      </div>
-    </>
+    <div className="nav-menu">
+      {navs.map(({ name, href }) => {
+        return (
+          <Link href={href} key={name}>
+            <a>{name}</a>
+          </Link>
+        );
+      })}
+    </div>
   );
 };
 
