@@ -1,8 +1,10 @@
+import { useRouter } from 'next/router';
 import React, { useCallback, useEffect, useState } from 'react';
 
 const CommentsPage = () => {
   const [comments, setComments] = useState([]);
   const [comment, setComment] = useState([]);
+  const router = useRouter();
 
   const fetchComments = async () => {
     const response = await fetch('/api/comments');
@@ -51,10 +53,17 @@ const CommentsPage = () => {
       </button>
       {comments.map((comment) => {
         return (
-          <div key={comment.id} className="comment">
+          <div
+            key={comment.id}
+            className="comment"
+            onClick={() => router.push(`/comments/${comment.id}`)}
+          >
             {comment.id}. {comment.text}
             <button
-              onClick={() => deleteComment(comment.id)}
+              onClick={(e) => {
+                e.stopPropagation();
+                return deleteComment(comment.id);
+              }}
               className="delete-button"
             >
               &#10006;

@@ -6,9 +6,11 @@ const Home = () => {
     <div className="nav-menu">
       {navs.map(({ name, href }) => {
         return (
-          <Link href={href} key={name}>
-            <a>{name}</a>
-          </Link>
+          <>
+            <Link href={href} key={name}>
+              <a>{name}</a>
+            </Link>
+          </>
         );
       })}
     </div>
