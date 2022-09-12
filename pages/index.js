@@ -1,6 +1,4 @@
 import Link from 'next/link';
-import { useRouter } from 'next/router';
-import Dashboard from './dashboard';
 
 const Home = () => {
   return (
@@ -10,7 +8,9 @@ const Home = () => {
         <Link href="/news">
           <a>News</a>
         </Link>
-
+        <Link href="/comments">
+          <a>Comments</a>
+        </Link>
         <Link href="/events">
           <a>Events</a>
         </Link>

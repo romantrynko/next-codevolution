@@ -1,5 +1,5 @@
 #__next {
-  width: 70%;
+  width: 1000%;
 }
 
 html {
@@ -26,7 +26,7 @@ a {
   color: aliceblue;
   font-size: 20px;
   text-decoration: none;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 a:last-child {
@@ -46,6 +46,25 @@ a:active {
 
 a:not(:hover) {
   transition-duration: 200ms;
+}
+
+.header {
+  background-color: rgb(101, 101, 101);
+  width: 100%;
+  position: fixed;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 80px;
+  color: rgb(83, 83, 83);
+  color: aliceblue;
+  box-shadow: 0 10px 25px -5px rgb(0, 0, 0);
+  z-index: 1500
+}
+
+.filler {
+  visibility: hidden;
+  height: 100px;
 }
 
 .product {
@@ -80,14 +99,12 @@ a:not(:hover) {
 .nav-menu {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   background-color: rgb(27, 98, 143);
   box-shadow: 0 10px 25px -5px rgb(0, 0, 0);
-  height: 350px;
   width: 350px;
   margin: 100px auto;
   border-radius: 8px;
+  padding: 40px 0px;
 }
 
 .user-card {
@@ -123,8 +140,9 @@ a:not(:hover) {
   align-items: center;
   border-radius: 20px;
   padding: 20px;
+  width: 70%;
   background: linear-gradient(49deg, rgba(118, 67, 170, 0.6397849462365591) 22%, rgba(61, 100, 153, 0.674731182795699) 100%);
-  margin: 50px 0;
+  margin: 50px auto;
 }
 
 .news:hover {
@@ -166,7 +184,7 @@ a:not(:hover) {
 }
 
 .sort-button:hover {
-  box-shadow: 0 10px 25px -5px rgb(0, 0, 0);
+  box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.15);
   background-color: rgb(22, 102, 86);
   transform: translateY(-1px);
   transition-duration: 300ms;
@@ -199,4 +217,49 @@ a:not(:hover) {
 .sport {
   width: 200px;
   margin-top: 10px;
+}
+
+.card-height {
+  height: 100px;
+}
+
+.comments-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.comment {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  width: 87%;
+  margin: 0 auto;
+  border-bottom: 1px solid gray;
+  padding: 15px 0;
+}
+
+input {
+  width: 250px;
+  border: none;
+  height: 35px;
+  border-radius: 4px;
+  background-color: gray;
+  font-size: 20px;
+  color: rgb(218, 218, 218);
+  padding-left: 8px;
+  margin-bottom: 15px;
+}
+
+input::placeholder {
+  color: rgb(195, 195, 195);
+}
+
+.event-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
