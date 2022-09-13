@@ -76,11 +76,12 @@ const EventList = () => {
       {/* <button onClick={fetchSportsEvents} className="sort-button sport">
         Sports Events
       </button> */}
-      <h1>List of events</h1>
-
-      <button onClick={() => setOpen(!open)} className={styles.addButton}>
-        {addButtonText}
-      </button>
+      <div className={styles.title}>
+        <h1>List of events</h1>
+        <button onClick={() => setOpen(!open)} className={styles.addButton}>
+          {addButtonText}
+        </button>
+      </div>
 
       {open && (
         <EventForm setFormData={setFormData} handleSubmit={handleSubmit} />

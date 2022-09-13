@@ -7,6 +7,7 @@ const Header = () => {
   const router = useRouter();
   const { pathname } = router;
   const pageName = pathname.split('/')[1].toUpperCase();
+  
   return (
     <>
       <div className={styles.header}>

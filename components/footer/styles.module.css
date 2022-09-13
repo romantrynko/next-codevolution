@@ -1,15 +1,40 @@
-.eventForm {
+.footer {
+  background-color: rgba(41, 41, 41, 0.922);
+  width: 100%;
+  position: fixed;
+  bottom: 0;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  margin: 15px auto;
-  width: 65%;
+  height: 60px;
+  color: aliceblue;
+  box-shadow: 0 -10px 25px -5px rgba(0, 0, 0, 0.5);
+  z-index: 1500
 }
 
-.eventInput {
-  margin-bottom: 10px;
-  width: 70%;
+.filler {
+  visibility: hidden;
+  height: 100px;
+}
+
+.title {
+  color: rgb(199, 199, 199);
+  cursor: pointer
+}
+
+.title:hover {
+  transform: scale(1.05);
+  color: white;
+  transition-duration: 300ms;
+}
+
+.title:not(:hover) {
+  transition-duration: 200ms;
+}
+
+.title:active {
+  color: gray;
+  transform: scale(0.95);
 }
 
 .button {
@@ -22,6 +47,10 @@
   border: 1px solid rgb(64, 64, 64);
   color: rgb(158, 158, 158);
   cursor: pointer;
+}
+
+.width-fit-content {
+  width: fit-content;
 }
 
 .button:hover {
