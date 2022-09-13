@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Link from 'next/link';
 import React from 'react';
 import styles from './styles.module.css'
@@ -5,6 +6,9 @@ import styles from './styles.module.css'
 const PostList = ({ posts }) => {
   return (
     <>
+      <Head>
+        <title>Posts</title>
+      </Head>
       <h1>Posts list</h1>
       {posts.map(({ id, title, body }) => {
         return (

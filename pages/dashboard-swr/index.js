@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import useSwr from 'swr';
 import styles from './styles.module.css';
 
@@ -16,6 +17,9 @@ const DashboardSWR = () => {
 
   return (
     <div className={styles.navBar}>
+      <Head>
+        <title>SWR</title>
+      </Head>
       <h2>Dashboard</h2>
       <h4>Posts - {data.posts}</h4>
       <h4>Likes - {data.likes}</h4>

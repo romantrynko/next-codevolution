@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import styles from './styles.module.css';
@@ -38,6 +39,9 @@ const CommentsPage = () => {
 
   return (
     <div className={styles.commentsPage}>
+      <Head>
+        <title>Comments</title>
+      </Head>
       <div className={styles.commentInputContainer}>
         <input
           value={comment}

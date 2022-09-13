@@ -1,9 +1,13 @@
+import Head from 'next/head';
 import router from 'next/router';
 import styles from './styles.module.css';
 
 const NewsArticlesList = ({ articles }) => {
   return (
     <div>
+      <Head>
+        <title>News</title>
+      </Head>
       <div className={styles.sortOptions}>
         <button
           className={styles.button}

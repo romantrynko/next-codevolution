@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import styles from './styles.module.css';
 
@@ -10,6 +11,9 @@ const Product = ({ product }) => {
 
   return (
     <>
+      <Head>
+        <title>Product-{product.id} details</title>
+      </Head>
       <h1>Product details</h1>
       <div className={styles.product} onClick={() => router.push('/')}>
         <h2>

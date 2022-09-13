@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import styles from './styles.module.css';
 
@@ -6,6 +7,9 @@ const ProductList = ({ products }) => {
 
   return (
     <>
+      <Head>
+        <title>Products</title>
+      </Head>
       <h1>List of products</h1>
       {products.map((product) => {
         return (

@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect, useReducer, useState } from 'react';
 import EventForm from '../../components/event-form/EventForm';
@@ -73,6 +74,9 @@ const EventList = () => {
 
   return (
     <>
+      <Head>
+        <title>Events</title>
+      </Head>
       {/* <button onClick={fetchSportsEvents} className="sort-button sport">
         Sports Events
       </button> */}
