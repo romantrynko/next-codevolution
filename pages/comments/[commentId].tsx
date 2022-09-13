@@ -1,10 +1,11 @@
-import { GetStaticPaths, GetStaticProps } from 'next';
+import { GetStaticPaths, GetStaticProps, GetStaticPropsContext, InferGetStaticPropsType } from 'next';
+import { NextParsedUrlQuery } from 'next/dist/server/request-meta';
 import { useRouter } from 'next/router';
 import React from 'react';
 import styles from './styles.module.css';
 import { IComment } from './types';
 
-const CommentDetails = ({ comment }: { comment: IComment }) => {
+const CommentDetails = ({ comment }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { id, text } = comment;
   const router = useRouter();
 
@@ -41,8 +42,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
+interface IParams extends NextParsedUrlQuery {
+  commentId: string
+}
+
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { commentId } = params;
+  const { commentId } = params as IParams;
 
   const response = await fetch(
     `http://localhost:3000/api/comments/${commentId}`
