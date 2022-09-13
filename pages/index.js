@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { navs } from '../assets/constants';
+import Footer from '../components/footer/Footer';
 
 const Home = () => {
   return (
@@ -18,3 +19,12 @@ const Home = () => {
 };
 
 export default Home;
+
+Home.getLayout = function PageLayout(page) {
+  return (
+    <>
+      {page}
+      <Footer />
+    </>
+  );
+};
