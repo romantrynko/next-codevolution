@@ -1,3 +1,4 @@
+import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import styles from './styles.module.css';
@@ -27,7 +28,7 @@ const Product = ({ product }) => {
 
 export default Product;
 
-export const getStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async (context) => {
   const { params } = context;
   const { productId } = params;
 
@@ -42,7 +43,7 @@ export const getStaticProps = async (context) => {
   };
 };
 
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: [{ params: { productId: '1' } }],
     fallback: true

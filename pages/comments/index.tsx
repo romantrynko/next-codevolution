@@ -1,11 +1,12 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import React, { useState } from 'react';
+import React, { SetStateAction, useState } from 'react';
 import styles from './styles.module.css';
+import { IComment } from './types';
 
 const CommentsPage = () => {
   const [comments, setComments] = useState([]);
-  const [comment, setComment] = useState([]);
+  const [comment, setComment] = useState('');
   const router = useRouter();
 
   const fetchComments = async () => {
@@ -45,7 +46,7 @@ const CommentsPage = () => {
       <div className={styles.commentInputContainer}>
         <input
           value={comment}
-          onChange={(e) => setComment(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setComment(e.target.value)}
           className={styles.commentInput}
           placeholder="Enter you comment"
         />
@@ -62,7 +63,7 @@ const CommentsPage = () => {
       >
         Load comments
       </button>
-      {comments.map((comment) => {
+      {comments.map((comment: IComment) => {
         return (
           <div
             key={comment.id}

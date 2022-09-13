@@ -1,8 +1,10 @@
+import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import React from 'react';
 import styles from './styles.module.css';
+import { IComment } from './types';
 
-const CommentDetails = ({ comment }) => {
+const CommentDetails = ({ comment }: { comment: IComment }) => {
   const { id, text } = comment;
   const router = useRouter();
 
@@ -23,11 +25,11 @@ const CommentDetails = ({ comment }) => {
 
 export default CommentDetails;
 
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const response = await fetch('http://localhost:3000/api/comments');
   const comments = await response.json();
 
-  const paths = comments.map((comment) => ({
+  const paths = comments.map((comment: IComment) => ({
     params: {
       commentId: `${comment.id}`
     }
@@ -39,7 +41,7 @@ export const getStaticPaths = async () => {
   };
 };
 
-export const getStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { commentId } = params;
 
   const response = await fetch(

@@ -1,3 +1,4 @@
+import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import React from 'react';
 import User from '../../components/user/User';
@@ -20,7 +21,7 @@ const UserList = ({ users }) => {
 
 export default UserList;
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const response = await fetch('https://jsonplaceholder.typicode.com/users');
   const data = await response.json();
 

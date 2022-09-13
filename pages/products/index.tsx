@@ -1,5 +1,7 @@
+import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import React from 'react';
 import styles from './styles.module.css';
 
 const ProductList = ({ products }) => {
@@ -30,7 +32,7 @@ const ProductList = ({ products }) => {
 
 export default ProductList;
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   console.log('Generating or regenerating products list');
   const response = await fetch(`http://localhost:4000/products`);
   const data = await response.json();

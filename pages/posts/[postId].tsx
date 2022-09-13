@@ -1,4 +1,5 @@
-import { useRouter } from 'next/router';
+import { GetStaticPaths, GetStaticProps } from 'next';
+import React from 'react';
 
 const Post = ({ post }) => {
   return (
@@ -13,7 +14,7 @@ const Post = ({ post }) => {
 
 export default Post;
 
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths= async () => {
   const response = await fetch('https://jsonplaceholder.typicode.com/posts/');
   const posts = await response.json();
 
@@ -25,7 +26,7 @@ export const getStaticPaths = async () => {
   };
 };
 
-export const getStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async (context) => {
   const { params } = context;
   const { postId } = params;
 
