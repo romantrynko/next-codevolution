@@ -1,6 +1,7 @@
+import { NextApiRequest, NextApiResponse } from 'next';
 import { comments } from '../../../data/comments';
 
-const handler = (req, res) => {
+const handler = (req: NextApiRequest, res: NextApiResponse) => {
   const { commentId } = req.query;
 
   if (req.method === 'GET') {
