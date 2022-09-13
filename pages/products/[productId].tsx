@@ -1,4 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { NextParsedUrlQuery } from 'next/dist/server/request-meta';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -29,9 +30,12 @@ const Product = ({ product }) => {
 
 export default Product;
 
-export const getStaticProps: GetStaticProps = async (context) => {
-  const { params } = context;
-  const { productId } = params;
+interface IParams extends NextParsedUrlQuery {
+  productId: string
+}
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const { productId } = params as IParams;
 
   const response = await fetch(`http://localhost:4000/products/${productId}`);
   const data = await response.json();

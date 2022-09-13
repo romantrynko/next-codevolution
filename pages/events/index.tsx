@@ -1,8 +1,18 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import React from 'react';
 import { useEffect, useReducer, useState } from 'react';
 import EventForm from '../../components/event-form/EventForm';
 import styles from './styles.module.css';
+
+type IEvent = {
+  id: string
+  title: string
+  description: string
+  category: string
+  date: string
+}
+
 
 // export const getServerSideProps = async (context) => {
 //   const { query } = context;
@@ -28,10 +38,9 @@ const formReducer = (state, event) => {
 };
 
 const EventList = () => {
-  const [events, setEvents] = useState([]);
-  const [open, setOpen] = useState(false);
-  const [addButtonText, setAddButtonText] = useState('+');
-  const router = useRouter();
+  const [events, setEvents] = useState<IEvent[]>([]);
+  const [open, setOpen] = useState<boolean>(false);
+  const [addButtonText, setAddButtonText] = useState<string>('+');
 
   const [formData, setFormData] = useReducer(formReducer, {});
 

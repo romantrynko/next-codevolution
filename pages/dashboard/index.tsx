@@ -1,9 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import styles from './styles.module.css';
 
+type IDashboardData = {
+  id?: SVGAnimatedNumber
+  posts?: number
+  likes?: number
+  followers?: number
+  following?: number
+}
+
 const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [dashboardData, setDashboardData] = useState(null);
+  const [dashboardData, setDashboardData] = useState<IDashboardData>({});
 
   useEffect(() => {
     const fetchDashboardData = async () => {

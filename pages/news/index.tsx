@@ -1,5 +1,7 @@
+import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import router from 'next/router';
+import React from 'react';
 import styles from './styles.module.css';
 
 const NewsArticlesList = ({ articles }) => {
@@ -37,7 +39,7 @@ const NewsArticlesList = ({ articles }) => {
 
 export default NewsArticlesList;
 
-export const getServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const response = await fetch('http://localhost:4000/news');
   const data = await response.json();
 

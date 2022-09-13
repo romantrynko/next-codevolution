@@ -1,4 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { NextParsedUrlQuery } from 'next/dist/server/request-meta';
 import React from 'react';
 
 const Post = ({ post }) => {
@@ -14,7 +15,7 @@ const Post = ({ post }) => {
 
 export default Post;
 
-export const getStaticPaths: GetStaticPaths= async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const response = await fetch('https://jsonplaceholder.typicode.com/posts/');
   const posts = await response.json();
 
@@ -26,9 +27,12 @@ export const getStaticPaths: GetStaticPaths= async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
-  const { params } = context;
-  const { postId } = params;
+interface IParams extends NextParsedUrlQuery {
+  postId: string
+}
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const { postId } = params as IParams;
 
   const response = await fetch(
     `https://jsonplaceholder.typicode.com/posts/${postId}`

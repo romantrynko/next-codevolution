@@ -4,7 +4,13 @@ import React from 'react';
 import User from '../../components/user/User';
 import styles from './styles.module.css';
 
-const UserList = ({ users }) => {
+interface IUser {
+  id: string
+  name: string
+  email: string
+}
+
+const UserList = ({ users }: { users: IUser[] }) => {
   return (
     <>
       <Head>

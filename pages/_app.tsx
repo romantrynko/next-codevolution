@@ -17,11 +17,11 @@ function MyApp({ Component, pageProps }: Props) {
   }
 
   return (
-    <Layout>
+    <>
       <Header />
       <Component {...pageProps} />
       <Footer />
-    </Layout>
+    </>
   );
 }
 

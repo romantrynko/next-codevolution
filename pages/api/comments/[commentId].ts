@@ -1,12 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { comments } from '../../../data/comments';
 
-type IQuery = {
-  commentId: Partial<{
-    [key: string]: string | string[];
-  }>
-}
-
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
   const commentId: string = req.query.commentId as string;
 
