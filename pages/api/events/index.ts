@@ -1,6 +1,15 @@
+import { NextApiRequest, NextApiResponse } from 'next';
 import { events } from '../../../data/events';
 
-export default function handler(req, res) {
+type Event = {
+  id: number
+  title: string
+  description: string
+  category: string
+  date: string
+}
+
+export default function handler(req: NextApiRequest, res: NextApiResponse<Event | Event[]>) {
   if (req.method === 'GET') {
     res.status(200).json(events);
   } else if (req.method === 'POST') {
@@ -12,7 +21,7 @@ export default function handler(req, res) {
       description,
       category,
       date
-    };
+    } as Event;
 
     events.push(newEvent);
     res.status(201).json(newEvent);
