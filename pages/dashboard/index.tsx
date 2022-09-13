@@ -1,17 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import styles from './styles.module.css';
-
-type IDashboardData = {
-  id?: SVGAnimatedNumber
-  posts?: number
-  likes?: number
-  followers?: number
-  following?: number
-}
+import type { IDashboardData } from './types';
 
 const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [dashboardData, setDashboardData] = useState<IDashboardData>({});
+  const [dashboardData, setDashboardData] = useState<IDashboardData | null>(null);
 
   useEffect(() => {
     const fetchDashboardData = async () => {
@@ -27,6 +20,8 @@ const Dashboard = () => {
   if (isLoading) {
     return <h2>Loading . . .</h2>;
   }
+
+  if (!dashboardData) return
 
   return (
     <div className={styles.navMenu}>

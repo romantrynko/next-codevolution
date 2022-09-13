@@ -1,8 +1,9 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { NextParsedUrlQuery } from 'next/dist/server/request-meta';
 import React from 'react';
+import type { Post } from './types';
 
-const Post = ({ post }) => {
+const Post = ({ post }: { post: Post }) => {
   return (
     <>
       <h2>
@@ -19,7 +20,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const response = await fetch('https://jsonplaceholder.typicode.com/posts/');
   const posts = await response.json();
 
-  const paths = posts.map((post) => ({ params: { postId: `${post.id}` } }));
+  const paths = posts.map((post: Post) => ({ params: { postId: `${post.id}` } }));
 
   return {
     paths,

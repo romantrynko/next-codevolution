@@ -3,8 +3,9 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React from 'react';
 import styles from './styles.module.css';
+import type { Products } from './types';
 
-const ProductList = ({ products }) => {
+const ProductList = ({ products }: {products: Products}) => {
   const router = useRouter();
 
   return (

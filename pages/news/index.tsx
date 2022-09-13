@@ -3,8 +3,9 @@ import Head from 'next/head';
 import router from 'next/router';
 import React from 'react';
 import styles from './styles.module.css';
+import type { Articles } from './types';
 
-const NewsArticlesList = ({ articles }) => {
+const NewsArticlesList = ({ articles }: {articles: Articles}) => {
   return (
     <div>
       <Head>

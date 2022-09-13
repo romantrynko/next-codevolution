@@ -1,19 +1,12 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { events } from '../../../data/events';
-
-type Event = {
-  id: number
-  title: string
-  description: string
-  category: string
-  date: string
-}
+import type { Event } from './types';
 
 export default function handler(req: NextApiRequest, res: NextApiResponse<Event | Event[]>) {
   if (req.method === 'GET') {
     res.status(200).json(events);
   } else if (req.method === 'POST') {
-    const { title, description, category, date } = req.body.event;
+    const { title, description, category, date } = req.body.event as Event;
 
     const newEvent = {
       id: Date.now(),

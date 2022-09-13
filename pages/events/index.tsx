@@ -1,17 +1,12 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { MouseEvent } from 'react';
 import { useEffect, useReducer, useState } from 'react';
 import EventForm from '../../components/event-form/EventForm';
 import styles from './styles.module.css';
+import type { IEvent, State } from './types';
 
-type IEvent = {
-  id: string
-  title: string
-  description: string
-  category: string
-  date: string
-}
+
 
 
 // export const getServerSideProps = async (context) => {
@@ -29,7 +24,7 @@ type IEvent = {
 //   };
 // };
 
-const formReducer = (state, event) => {
+const formReducer = (state: State, event: MouseEvent<HTMLFormElement>) => {
   return {
     ...state,
     id: Date.now(),
@@ -58,7 +53,7 @@ const EventList = () => {
     } else {
       setAddButtonText('+');
     }
-  }, [events, open]);
+  }, []);
 
   // const fetchSportsEvents = async () => {
   //   const response = await fetch('/api/events?category=sports');
@@ -68,7 +63,7 @@ const EventList = () => {
   //   router.push('events?category=sports', undefined, { shallow: true });
   // };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: MouseEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const response = await fetch('/api/events', {

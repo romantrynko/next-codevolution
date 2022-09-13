@@ -4,8 +4,9 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React from 'react';
 import styles from './styles.module.css';
+import type { Product } from './types';
 
-const Product = ({ product }) => {
+const Product = ({ product }: {product: Product}) => {
   const router = useRouter();
 
   if (router.isFallback) {

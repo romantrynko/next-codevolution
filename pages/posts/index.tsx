@@ -3,8 +3,9 @@ import Head from 'next/head';
 import Link from 'next/link';
 import React from 'react';
 import styles from './styles.module.css'
+import type { Posts } from './types';
 
-const PostList = ({ posts }) => {
+const PostList = ({ posts }: { posts: Posts }) => {
   return (
     <>
       <Head>
