@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import styles from './styles.module.css';
 
 const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -20,7 +21,7 @@ const Dashboard = () => {
   }
 
   return (
-    <div className='nav-menu'>
+    <div className={styles.navMenu}>
       <h2>Dashboard</h2>
       <h4>Posts - {dashboardData.posts}</h4>
       <h4>Likes - {dashboardData.likes}</h4>

@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import styles from './styles.module.css';
 
 const ProductList = ({ products }) => {
   const router = useRouter();
@@ -9,7 +10,7 @@ const ProductList = ({ products }) => {
       {products.map((product) => {
         return (
           <div
-            className="product"
+            className={styles.product}
             key={product.id}
             onClick={() => router.push(`/products/${product.id}`)}
           >

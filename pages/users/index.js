@@ -1,11 +1,12 @@
 import React from 'react';
-import User from '../components/User';
+import User from '../../components/user/User';
+import styles from './styles.module.css';
 
 const UserList = ({ users }) => {
   return (
     <>
       {users.map(({ id, name, email }) => (
-        <div className='user-card' key={id}>
+        <div className={styles.userCard} key={id}>
           <User user={{ name, email }} />
         </div>
       ))}
@@ -25,5 +26,3 @@ export const getStaticProps = async () => {
     }
   };
 };
-
-// https://jsonplaceholder.typicode.com/

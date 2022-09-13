@@ -1,36 +1,37 @@
-import React from 'react'
+import React from 'react';
+import styles from './styles.module.css';
 
 const EventForm = ({ setFormData, handleSubmit }) => {
   return (
-    <form className="event-form" onSubmit={handleSubmit}>
+    <form className={styles.eventForm} onSubmit={handleSubmit}>
       <input
         onChange={setFormData}
         name="title"
         placeholder="Title"
-        className="event-input"
+        className={styles.eventInput}
       />
       <input
         onChange={setFormData}
         name="description"
         placeholder="Description"
-        className="event-input"
+        className={styles.eventInput}
       />
       <input
         onChange={setFormData}
         name="category"
         placeholder="Category"
-        className="event-input"
+        className={styles.eventInput}
       />
       <input
         type="date"
         onChange={setFormData}
         name="date"
-        className="event-input"
+        className={styles.eventInput}
       />
 
-      <button className="button">Submit event</button>
+      <button className={styles.button}>Submit event</button>
     </form>
   );
 };
 
-export default EventForm
+export default EventForm;

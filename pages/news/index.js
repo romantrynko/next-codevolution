@@ -1,24 +1,25 @@
-import router from 'next/router'
+import router from 'next/router';
+import styles from './styles.module.css';
 
 const NewsArticlesList = ({ articles }) => {
   return (
     <div>
-      <div className="sort-options">
+      <div className={styles.sortOptions}>
         <button
-          className="button"
+          className={styles.button}
           onClick={() => router.push('/news/sports')}
         >
           Sports
         </button>
         <button
-          className="button"
+          className={styles.button}
           onClick={() => router.push('/news/politics')}
         >
           Politics
         </button>
       </div>
       {articles.map(({ id, title, description, category }) => (
-        <div className="news" key={id}>
+        <div className={styles.news} key={id}>
           <h2>
             {id}. {title}
           </h2>

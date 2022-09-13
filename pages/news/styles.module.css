@@ -1,0 +1,71 @@
+.sortOptions {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 50px;
+  margin: 20px auto
+}
+
+.button {
+  padding: 0 15px;
+  height: 40px;
+  border: none;
+  font-size: 17px;
+  border-radius: 4px;
+  background-color: rgba(27, 143, 120, 0);
+  border: 1px solid rgb(64, 64, 64);
+  color: rgb(158, 158, 158);
+  cursor: pointer;
+}
+
+.width-fit-content {
+  width: fit-content;
+}
+
+.button:hover {
+  background-color: rgba(60, 167, 145, 0.2);
+  border: 1px solid rgb(20, 153, 118);
+  color: white;
+  transform: translateY(-1px);
+  transition-duration: 300ms;
+}
+
+.button:not(:hover) {
+  transition-duration: 200ms;
+}
+
+.button:active {
+  background-color: rgb(14, 70, 59);
+  color: rgb(110, 110, 110);
+}
+
+.news {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  padding: 20px;
+  width: 70%;
+  background: linear-gradient(49deg, rgba(118, 67, 170, 0.6397849462365591) 22%, rgba(61, 100, 153, 0.674731182795699) 100%);
+  margin: 50px auto;
+}
+
+.news:hover {
+  box-shadow: 0 10px 25px -5px rgb(0, 0, 0);
+  color: white;
+  background: linear-gradient(49deg, rgba(118, 67, 170, 1) 22%, rgba(61, 100, 153, 1) 100%);
+  transform: translateY(-5px);
+  transition-duration: 300ms;
+}
+
+.news:not(:hover) {
+  transition-duration: 200ms;
+}
+
+.news:active {
+  background-color: rgb(27, 143, 120);
+  transform: scale(0.95);
+  box-shadow: 0 10px 5px -5px rgb(0, 0, 0);
+}

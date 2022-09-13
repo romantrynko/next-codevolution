@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
+import styles from './styles.module.css'
 
 const PostList = ({ posts }) => {
   return (
@@ -7,7 +8,7 @@ const PostList = ({ posts }) => {
       <h1>Posts list</h1>
       {posts.map(({ id, title, body }) => {
         return (
-          <div className='post-card' key={id}>
+          <div className={styles.postCard} key={id}>
             <Link href={`/posts/${id}`}>
               <h2>{title}</h2>
             </Link>

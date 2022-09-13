@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import React from 'react';
+import styles from './styles.module.css';
 
 const CommentDetails = ({ comment }) => {
   const { id, text } = comment;
@@ -10,7 +11,10 @@ const CommentDetails = ({ comment }) => {
       <h2>
         {id}. {text}
       </h2>
-      <button className="button" onClick={() => router.push('/comments')}>
+      <button
+        className={styles.button}
+        onClick={() => router.push('/comments')}
+      >
         &larr; Back
       </button>
     </div>
@@ -31,7 +35,7 @@ export const getStaticPaths = async () => {
 
   return {
     paths,
-    fallback: true
+    fallback: false
   };
 };
 

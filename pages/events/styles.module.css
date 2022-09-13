@@ -1,0 +1,41 @@
+.addButton {
+  width: 50px;
+  height: 50px;
+  border: none;
+  font-size: 27px;
+  border-radius: 50%;
+  background-color: rgb(27, 143, 120);
+  color: aliceblue;
+  cursor: pointer;
+}
+
+.addButton:hover {
+  box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.15);
+  background-color: rgb(22, 102, 86);
+  transform: translateY(-1px);
+  transition-duration: 300ms;
+}
+
+.addButton:not(:hover) {
+  transition-duration: 200ms;
+}
+
+.addButton:active {
+  box-shadow: 0 10px 15px -5px rgb(0, 0, 0);
+  background-color: rgb(14, 70, 59);
+  transform: translateY(1px);
+  color: rgb(110, 110, 110);
+}
+
+.eventCard {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  padding: 0 20px;
+  background-color: rgba(113, 56, 154, 0.591);
+  width: 70%;
+  margin: 50px auto;
+}

@@ -1,0 +1,132 @@
+.commentsPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.commentInputContainer {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.submitButton, .loadButton{
+  padding: 0 15px;
+  height: 40px;
+  border: none;
+  font-size: 17px;
+  border-radius: 4px;
+  background-color: rgba(27, 143, 120, 0);
+  border: 1px solid rgb(64, 64, 64);
+  color: rgb(158, 158, 158);
+  cursor: pointer;
+}
+
+.widthFitContent {
+  width: fit-content;
+}
+
+.submitButton:hover {
+  background-color: rgba(60, 167, 145, 0.2);
+  border: 1px solid rgb(20, 153, 118);
+  color: white;
+  transform: translateY(-1px);
+  transition-duration: 300ms;
+}
+
+.loadButton:hover {
+  background-color: rgba(167, 163, 60, 0.2);
+  border: 1px solid rgb(153, 109, 20);
+  color: white;
+  transform: translateY(-1px);
+  transition-duration: 300ms;
+}
+
+.submitButton, .loadButton:not(:hover) {
+  transition-duration: 200ms;
+}
+
+.submitButton:active {
+  background-color: rgb(14, 70, 59);
+  color: rgb(110, 110, 110);
+}
+
+.loadButton:active {
+  background-color: rgb(70, 36, 14);
+  color: rgb(110, 110, 110);
+}
+
+.commentInput {
+  width: 70%;
+}
+
+.comment {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 87%;
+  margin: 0 auto;
+  border-bottom: 1px solid gray;
+  padding: 15px 0;
+}
+
+.deleteButton {
+  border: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0);
+  color: antiquewhite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.deleteButton:hover {
+  background-color: rgb(145, 63, 42);
+  transition-duration: 300ms;
+}
+
+.deleteButton:not(:hover) {
+  transition-duration: 200ms;
+}
+
+.deleteButton:active {
+  background-color: rgb(222, 69, 42);
+  color: rgb(82, 21, 21);
+  transform: scale(0.8);
+}
+
+.button {
+  padding: 0 15px;
+  height: 40px;
+  border: none;
+  font-size: 17px;
+  border-radius: 4px;
+  background-color: rgba(27, 143, 120, 0);
+  border: 1px solid rgb(64, 64, 64);
+  color: rgb(158, 158, 158);
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: rgba(60, 167, 145, 0.2);
+  border: 1px solid rgb(20, 153, 118);
+  color: white;
+  transform: translateY(-1px);
+  transition-duration: 300ms;
+}
+
+.button:not(:hover) {
+  transition-duration: 200ms;
+}
+
+.button:active {
+  background-color: rgb(14, 70, 59);
+  color: rgb(110, 110, 110);
+}

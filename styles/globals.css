@@ -41,7 +41,6 @@ a:last-child {
 }
 
 a:hover {
-  /* transform: scale(1.02); */
   color: rgb(255, 255, 255);
   border-bottom: 1px solid rgb(242, 166, 52);
   width: 78%;
@@ -49,7 +48,6 @@ a:hover {
 }
 
 a:active {
-  /* transform: scale(0.95); */
   color: rgb(76, 128, 76);
 }
 
@@ -57,219 +55,15 @@ a:not(:hover) {
   transition-duration: 200ms;
 }
 
-.title {
-  color: rgb(199, 199, 199);
-  cursor: pointer
-}
-
-.title:hover {
-  transform: scale(1.05);
-  color: white;
-  transition-duration: 300ms;
-}
-
-.title:not(:hover) {
-  transition-duration: 200ms;
-}
-
-.title:active {
-  color: gray;
-  transform: scale(0.95);
-}
-
-.header {
-  background-color: rgb(101, 101, 101);
-  width: 100%;
-  position: fixed;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 80px;
-  color: rgb(83, 83, 83);
-  color: aliceblue;
-  box-shadow: 0 10px 25px -5px rgb(0, 0, 0);
-  z-index: 1500
-}
-
-.filler {
-  visibility: hidden;
-  height: 100px;
-}
-
-.product {
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 20px;
-  padding: 20px;
-  background: linear-gradient(9deg, rgba(4, 68, 69, 0.9112903225806451) 29%, rgba(9, 113, 121, 0.9086021505376344) 52%, rgba(0, 188, 255, 0.8790322580645161) 100%);
-  margin: 50px 0;
-}
-
-.product:hover {
-  box-shadow: 0 10px 25px -5px rgb(0, 0, 0);
-  background: linear-gradient(12deg, rgba(4, 68, 69, 1) 29%, rgba(9, 113, 121, 1) 52%, rgba(0, 188, 255, 1) 100%);
-  transform: translateY(-5px);
-  transition-duration: 300ms;
-}
-
-.product:not(:hover) {
-  transition-duration: 200ms;
-}
-
-.product:active {
-  background-color: rgb(27, 143, 120);
-  transform: scale(0.95);
-  box-shadow: 0 10px 5px -5px rgb(0, 0, 0);
-}
-
 .nav-menu {
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.05);
-  /* box-shadow: 0 10px 25px -5px rgb(0, 0, 0); */
   width: 350px;
   margin: 100px auto;
   border-radius: 6px;
   padding: 40px 0px;
-}
-
-.user-card {
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-  background-color: rgba(113, 56, 154, 0.591);
-  width: 70%;
-  margin: 50px auto;
-}
-
-.post-card {
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-  padding: 0 20px;
-  background-color: rgba(113, 56, 154, 0.591);
-  width: 70%;
-  margin: 50px auto;
-}
-
-.news {
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 20px;
-  padding: 20px;
-  width: 70%;
-  background: linear-gradient(49deg, rgba(118, 67, 170, 0.6397849462365591) 22%, rgba(61, 100, 153, 0.674731182795699) 100%);
-  margin: 50px auto;
-}
-
-.news:hover {
-  box-shadow: 0 10px 25px -5px rgb(0, 0, 0);
-  color: white;
-  background: linear-gradient(49deg, rgba(118, 67, 170, 1) 22%, rgba(61, 100, 153, 1) 100%);
-  transform: translateY(-5px);
-  transition-duration: 300ms;
-}
-
-.news:not(:hover) {
-  transition-duration: 200ms;
-}
-
-.news:active {
-  background-color: rgb(27, 143, 120);
-  transform: scale(0.95);
-  box-shadow: 0 10px 5px -5px rgb(0, 0, 0);
-}
-
-.sort-options {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 50px;
-  /* width: 200px; */
-  margin: 20px auto
-}
-
-.button {
-  /* width: 100px; */
-  padding: 0 15px;
-  height: 40px;
-  border: none;
-  font-size: 17px;
-  border-radius: 4px;
-  background-color: rgba(27, 143, 120, 0);
-  border: 1px solid rgb(64, 64, 64);
-  color: rgb(158, 158, 158);
-  cursor: pointer;
-}
-
-.width-fit-content {
-  width: fit-content;
-}
-
-.button:hover {
-  /* box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.35); */
-  background-color: rgba(60, 167, 145, 0.2);
-  border: 1px solid rgb(20, 153, 118);
-  color: white;
-  transform: translateY(-1px);
-  transition-duration: 300ms;
-}
-
-.button:not(:hover) {
-  transition-duration: 200ms;
-}
-
-.button:active {
-  background-color: rgb(14, 70, 59);
-  color: rgb(110, 110, 110);
-}
-
-.event-card {
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-  padding: 0 20px;
-  background-color: rgba(113, 56, 154, 0.591);
-  width: 70%;
-  margin: 50px auto;
-}
-
-.card-height {
-  height: 100px;
-}
-
-.comments-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.comment {
-  cursor: pointer;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 87%;
-  margin: 0 auto;
-  border-bottom: 1px solid gray;
-  padding: 15px 0;
 }
 
 input {
@@ -283,85 +77,7 @@ input {
   padding-left: 8px;
 }
 
-.comment-input-container {
-  width: 90%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin-bottom: 20px;
-}
-
 input::placeholder {
   color: rgb(195, 195, 195);
   text-align: center;
-}
-
-.event-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 15px auto;
-  width: 65%;
-}
-
-.event-input {
-  margin-bottom: 10px;
-}
-
-.add-button {
-  width: 50px;
-  height: 50px;
-  border: none;
-  font-size: 27px;
-  border-radius: 50%;
-  background-color: rgb(27, 143, 120);
-  color: aliceblue;
-  cursor: pointer;
-}
-
-.add-button:hover {
-  box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.15);
-  background-color: rgb(22, 102, 86);
-  transform: translateY(-1px);
-  transition-duration: 300ms;
-}
-
-.add-button:not(:hover) {
-  transition-duration: 200ms;
-}
-
-.add-button:active {
-  box-shadow: 0 10px 15px -5px rgb(0, 0, 0);
-  background-color: rgb(14, 70, 59);
-  transform: translateY(1px);
-  color: rgb(110, 110, 110);
-}
-
-.delete-button {
-  border: none;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0);
-  color: antiquewhite;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-.delete-button:hover {
-  background-color: rgb(145, 63, 42);
-  transition-duration: 300ms;
-}
-
-.delete-button:not(:hover) {
-  transition-duration: 200ms;
-}
-
-.delete-button:active {
-  background-color: rgb(222, 69, 42);
-  color: rgb(82, 21, 21);
-  transform: scale(0.8);
 }

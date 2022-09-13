@@ -1,0 +1,12 @@
+.postCard {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  padding: 0 20px;
+  background-color: rgba(113, 56, 154, 0.591);
+  width: 70%;
+  margin: 50px auto;
+}

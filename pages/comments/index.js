@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import styles from './styles.module.css';
 
 const CommentsPage = () => {
   const [comments, setComments] = useState([]);
@@ -36,26 +37,32 @@ const CommentsPage = () => {
   };
 
   return (
-    <div className="comments-page">
-      <div className="comment-input-container">
+    <div className={styles.commentsPage}>
+      <div className={styles.commentInputContainer}>
         <input
           value={comment}
           onChange={(e) => setComment(e.target.value)}
-          className="comment-input"
+          className={styles.commentInput}
           placeholder="Enter you comment"
         />
-        <button className="button width-fit-content" onClick={submitComment}>
+        <button
+          className={`${styles.submitButton} ${styles.widthFitContent}`}
+          onClick={submitComment}
+        >
           Submit
         </button>
       </div>
-      <button className="button width-fit-content" onClick={fetchComments}>
+      <button
+        className={`${styles.loadButton} ${styles.widthFitContent}`}
+        onClick={fetchComments}
+      >
         Load comments
       </button>
       {comments.map((comment) => {
         return (
           <div
             key={comment.id}
-            className="comment"
+            className={styles.comment}
             onClick={() => router.push(`/comments/${comment.id}`)}
           >
             {comment.id}. {comment.text}
@@ -64,7 +71,7 @@ const CommentsPage = () => {
                 e.stopPropagation();
                 return deleteComment(comment.id);
               }}
-              className="delete-button"
+              className={styles.deleteButton}
             >
               &#10006;
             </button>

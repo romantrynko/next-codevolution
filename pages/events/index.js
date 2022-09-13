@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import { useEffect, useReducer, useState } from 'react';
-import EventForm from '../components/EventForm';
+import EventForm from '../../components/event-form/EventForm';
+import styles from './styles.module.css';
 
 // export const getServerSideProps = async (context) => {
 //   const { query } = context;
@@ -77,7 +78,7 @@ const EventList = () => {
       </button> */}
       <h1>List of events</h1>
 
-      <button onClick={() => setOpen(!open)} className="add-button">
+      <button onClick={() => setOpen(!open)} className={styles.addButton}>
         {addButtonText}
       </button>
 
@@ -89,7 +90,7 @@ const EventList = () => {
         const { id, title, description, category, date } = event;
 
         return (
-          <div key={id} className="event-card">
+          <div key={id} className={styles.eventCard}>
             <h2>
               {id}. {title}
             </h2>
