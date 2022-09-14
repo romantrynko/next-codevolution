@@ -1,3 +1,4 @@
+import { getSession, useSession, signIn } from 'next-auth/react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React, { MouseEvent } from 'react';
@@ -36,6 +37,11 @@ const EventList = () => {
   const [events, setEvents] = useState<IEvent[]>([]);
   const [open, setOpen] = useState<boolean>(false);
   const [addButtonText, setAddButtonText] = useState<string>('+');
+  const [loading, setLoading] = useState(true)
+  const { data: session, status } = useSession();
+  console.log('session', session);
+  console.log('status', status);
+
 
   const [formData, setFormData] = useReducer(formReducer, {});
 
@@ -54,6 +60,20 @@ const EventList = () => {
       setAddButtonText('+');
     }
   }, []);
+
+  useEffect(() => {
+    const securePage = async () => {
+      const session = await getSession()
+      if (!session) {
+        signIn()
+      } else {
+        setLoading(false)
+      }
+    }
+    securePage()
+  }, [])
+
+  if (loading) return <h2>Loading...</h2>
 
   // const fetchSportsEvents = async () => {
   //   const response = await fetch('/api/events?category=sports');

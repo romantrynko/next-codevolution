@@ -10,8 +10,6 @@ const Header = () => {
   const { pathname } = router;
   const pageName = pathname.split('/')[1].toUpperCase();
   const { data: session, status } = useSession();
-  console.log(session?.user);
-
 
   return (
     <>

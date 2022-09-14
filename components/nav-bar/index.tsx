@@ -13,17 +13,17 @@ const NavBar = () => {
   return (
     <div className={styles.navMenu}>
 
+      {
+        navs.map(({ name, href }: Navs) => {
+          return (
+            <Link href={href} key={name}>
+              <a>{name}</a>
+            </Link>
+          );
+        })
+      }
       {status === 'authenticated' &&
         <>
-          {
-            navs.map(({ name, href }: Navs) => {
-              return (
-                <Link href={href} key={name}>
-                  <a>{name}</a>
-                </Link>
-              );
-            })
-          }
           {<Link href='#'>
             <a onClick={e => {
               e.preventDefault()
