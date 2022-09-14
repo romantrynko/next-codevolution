@@ -18,15 +18,15 @@ const Home = () => {
 
 export default Home;
 
-type PageLayoutProps = {
-  children: ReactNode,
-};
+// type PageLayoutProps = {
+//   children: ReactNode,
+// };
 
-Home.getLayout = function PageLayout(page: PageLayoutProps) {
-  return (
-    <>
-      {page}
-      <Footer />
-    </>
-  );
-};
+// Home.getLayout = function PageLayout(page: PageLayoutProps) {
+//   return (
+//     <>
+//       {page}
+//       <Footer />
+//     </>
+//   );
+// };

@@ -6,6 +6,6 @@ export const navs = [
   { name: 'Users', href: '/users' },
   // { name: 'Posts', href: '/posts' },
   { name: 'Products', href: '/products' },
-  { name: 'Login', href: '#' },
-  { name: 'Logout', href: '#' },
+  // { name: 'Login', href: '#' },
+  // { name: 'Logout', href: '#' },
 ];
