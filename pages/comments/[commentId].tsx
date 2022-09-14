@@ -50,7 +50,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { commentId } = params as IParams;
 
   const response = await fetch(
-    `http://localhost:3000/api/comments/${commentId}`
+    `${process.env.DB_API_LOCALHOST_COMMENTS}/${commentId}`
   );
   const comment = await response.json();
 
