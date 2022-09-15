@@ -1,4 +1,4 @@
-export type IEvent = {
+export type Event = {
   id: string
   title: string
   description: string
@@ -7,5 +7,5 @@ export type IEvent = {
 }
 
 export type State = {
-  event: IEvent
+  event: Event
 }

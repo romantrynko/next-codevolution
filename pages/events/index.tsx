@@ -1,14 +1,11 @@
 import { getSession, useSession, signIn } from 'next-auth/react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import React, { MouseEvent } from 'react';
+import React, { FormEvent, MouseEvent } from 'react';
 import { useEffect, useReducer, useState } from 'react';
 import EventForm from '../../components/event-form/EventForm';
 import styles from './styles.module.css';
-import type { IEvent, State } from './types';
-
-
-
+import type { Event, State } from './types';
 
 // export const getServerSideProps = async (context) => {
 //   const { query } = context;
@@ -25,25 +22,24 @@ import type { IEvent, State } from './types';
 //   };
 // };
 
-const formReducer = (state: State, event: MouseEvent<HTMLFormElement>) => {
+const formReducer = (state: State, e: FormEvent<HTMLInputElement>) => {
   return {
     ...state,
     id: Date.now(),
-    [event.target.name]: event.target.value
+    [e.target.name]: e.target.value
   };
 };
 
 const EventList = () => {
-  const [events, setEvents] = useState<IEvent[]>([]);
+  const [events, setEvents] = useState<Event[]>([]);
   const [open, setOpen] = useState<boolean>(false);
-  const [addButtonText, setAddButtonText] = useState<string>('+');
   const [loading, setLoading] = useState(true)
   const { data: session, status } = useSession();
   console.log('session', session);
   console.log('status', status);
 
 
-  const [formData, setFormData] = useReducer(formReducer, {});
+  const [{formData, isLoading, error}, dispatch] = useReducer(formReducer, {});
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -53,12 +49,6 @@ const EventList = () => {
       setEvents(data);
     };
     fetchEvents();
-
-    if (open) {
-      setAddButtonText('x');
-    } else {
-      setAddButtonText('+');
-    }
   }, []);
 
   useEffect(() => {
@@ -107,12 +97,12 @@ const EventList = () => {
       <div className={styles.title}>
         <h1>List of events</h1>
         <button onClick={() => setOpen(!open)} className={styles.addButton}>
-          {addButtonText}
+          {open ? 'x' : '+'}
         </button>
       </div>
 
       {open && (
-        <EventForm setFormData={setFormData} handleSubmit={handleSubmit} />
+        <EventForm setFormData={dispatch} handleSubmit={handleSubmit} />
       )}
 
       {events.map((event) => {

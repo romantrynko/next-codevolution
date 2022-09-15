@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { DispatchWithoutAction } from 'react';
 import styles from './styles.module.css';
 
-const EventForm = ({ setFormData, handleSubmit }) => {
+const EventForm = ({ setFormData, handleSubmit }: { setFormData: DispatchWithoutAction, handleSubmit: () => {} }) => {
   return (
     <form className={styles.eventForm} onSubmit={handleSubmit}>
       <input

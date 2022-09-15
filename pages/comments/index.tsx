@@ -1,6 +1,8 @@
+import { GetServerSideProps } from 'next';
+import { getSession, useSession } from 'next-auth/react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import React, { SetStateAction, useState } from 'react';
+import React, { useState } from 'react';
 import styles from './styles.module.css';
 import { IComment } from './types';
 
@@ -28,7 +30,7 @@ const CommentsPage = () => {
     console.log(data);
   };
 
-  const deleteComment = async (commentId) => {
+  const deleteComment = async (commentId: number | string) => {
     const response = await fetch(`api/comments/${commentId}`, {
       method: 'DELETE'
     });
@@ -88,3 +90,22 @@ const CommentsPage = () => {
 };
 
 export default CommentsPage;
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const session = await getSession(context)
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: `/api/auth/signin?callbackUrl=http://localhost:3000/comments`,
+        permanent: false
+      }
+    }
+  }
+
+  return {
+    props: {
+
+    }
+  }
+}
