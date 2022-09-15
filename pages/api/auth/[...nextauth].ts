@@ -38,7 +38,10 @@ const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       type: 'credentials',
-      credentials: {},
+      credentials: {
+        email: { label: "Email", type: "email", placeholder: "mail" },
+        password: { label: "Password", type: 'password' },
+      },
       authorize(credentials, req) {
         const { email, password } = credentials as {
           email: string,
@@ -50,7 +53,10 @@ const authOptions: NextAuthOptions = {
         return { id: '12345', name: "Roman Trynko", email: 'roman@gmail.com' };
       },
     })
-  ]
+  ],
+  pages: {
+    signIn: '/auth/signIn'
+  }
 }
 
 export default NextAuth(authOptions)
